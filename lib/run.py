@@ -7,7 +7,7 @@ import pymorphy2
 import re
 
 load = pd.read_csv('val.csv')
-test = pd.read_csv(r'task-for-hiring-data/test_data.csv')
+test = pd.read_csv(r'~/main/task-for-hiring-data/test_data.csv')
 with open("stop_words_ru.txt", encoding='utf-8') as f:
     stop_words = [x.replace("\n", "") for x in f]
     
@@ -96,7 +96,7 @@ params = {'boosting_type': 'dart', 'class_weight': None, 'colsample_bytree': 0.7
           'learning_rate': 0.01778279410038923, 'max_depth': 49, 'min_child_samples': 5, 'n_estimators': 1150, 
           'num_leaves': 85, 'reg_alpha': 0.003359818286283781, 'reg_lambda': 0.12742749857031335, 
           'subsample': 0.95, 'subsample_freq': 6}
-clf = lgb.LGBMClassifier(n_jobs=4, objective='binary', **params)
+clf = lgb.LGBMClassifier(n_jobs=-1, objective='binary', **params)
 clf.fit(train.values, y)
 
 if __name__ == '__main__':
@@ -109,5 +109,5 @@ if __name__ == '__main__':
     mask_prediction['start'] = None
     mask_prediction['end'] = None
 
-    target_prediction.to_csv('task-for-hiring-data/target_prediction.csv', index=False)
-    mask_prediction.to_csv('task-for-hiring-data/mask_prediction.csv', index=False)
+    target_prediction.to_csv('~/main/task-for-hiring-data/target_prediction.csv', index=False)
+    mask_prediction.to_csv('~/main/task-for-hiring-data/mask_prediction.csv', index=False)
