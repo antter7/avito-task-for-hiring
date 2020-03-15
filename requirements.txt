@@ -2,3 +2,4 @@ tqdm
 sklearn
 pandas
 lightgbm
+pymorphy2-dicts-ru
