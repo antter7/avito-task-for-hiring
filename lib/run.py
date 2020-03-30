@@ -6,7 +6,7 @@ import lightgbm as lgb
 import pymorphy2
 import re
 
-load = pd.read_csv('val.csv')
+load = pd.read_csv(r'~/main/task-for-hiring-data/val.csv')
 test = pd.read_csv(r'~/main/task-for-hiring-data/test_data.csv')
 with open("stop_words_ru.txt", encoding='utf-8') as f:
     stop_words = [x.replace("\n", "") for x in f]
